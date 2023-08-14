@@ -105,15 +105,15 @@ def cart_items_view(request):
     if cart:
         cart_items = CartItem.objects.filter(cart=cart)
         total_price = sum(Decimal(item.product.price) * item.quantity for item in cart_items)
-        tax = Decimal('0.05') * total_price  # Calculate 5% tax
-        total_price += tax  # Add tax to the total price
+        # tax = Decimal('0.05') * total_price  # Calculate 5% tax
+        # total_price += tax  # Add tax to the total price
         
         # Format the total_price and tax to have two decimal places
         total_price = total_price.quantize(Decimal('0.00'))
-        tax = tax.quantize(Decimal('0.00'))
+        # tax = tax.quantize(Decimal('0.00'))
     else:
         total_price = Decimal('0.00')
-        tax = Decimal('0.00')
+        # tax = Decimal('0.00')
         cart_items = None
 
         
@@ -161,15 +161,15 @@ def checkout(request):
     if cart:
         cart_items = CartItem.objects.filter(cart=cart)
         total_price = sum(Decimal(item.product.price) * item.quantity for item in cart_items)
-        tax = Decimal('0.05') * total_price  # Calculate 5% tax
-        total_price += tax  # Add tax to the total price
+        # tax = Decimal('0.05') * total_price  # Calculate 5% tax
+        # total_price += tax  # Add tax to the total price
         
         # Format the total_price and tax to have two decimal places
         total_price = total_price.quantize(Decimal('0.00'))
-        tax = tax.quantize(Decimal('0.00'))
+        # tax = tax.quantize(Decimal('0.00'))
     else:
         total_price = Decimal('0.00')
-        tax = Decimal('0.00')
+        # tax = Decimal('0.00')
         cart_items = None
 
     # calculation subtotal without tax
@@ -190,15 +190,15 @@ def checkout(request):
         if cart:
             cart_items = CartItem.objects.filter(cart=cart)
             total_price = sum(Decimal(item.product.price) * item.quantity for item in cart_items)
-            tax = Decimal('0.05') * total_price  # Calculate 5% tax
-            total_price += tax  # Add tax to the total price
+            # tax = Decimal('0.05') * total_price  # Calculate 5% tax
+            # total_price += tax  # Add tax to the total price
             
             # Format the total_price and tax to have two decimal places
             total_price = total_price.quantize(Decimal('0.00'))
-            tax = tax.quantize(Decimal('0.00'))
+            # tax = tax.quantize(Decimal('0.00'))
         else:
             total_price = Decimal('0.00')
-            tax = Decimal('0.00')
+            # tax = Decimal('0.00')
             cart_items = None
 
         # calculation subtotal without tax
@@ -248,7 +248,7 @@ def checkout(request):
 
         order_details += f"\n----------------------\n"
         order_details += f"\n*Sub Total Price*: {sub_total_price}\n"
-        order_details += f"*Tax*: {'5%'}\n"
+        # order_details += f"*Tax*: {'5%'}\n"
         order_details += f"*Total Price*: {total_price}\n"
         order_details += f"----------------------\n"
 

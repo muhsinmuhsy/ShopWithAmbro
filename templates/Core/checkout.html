@@ -302,12 +302,12 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-item input-item-name ltn__custom-icon">
-                                                <input type="text" name="first_name" placeholder="First name">
+                                                <input type="text" name="first_name" placeholder="First name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-item input-item-name ltn__custom-icon">
-                                                <input type="text" name="last_name" placeholder="Last name">
+                                                <input type="text" name="last_name" placeholder="Last name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -317,7 +317,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-item input-item-phone ltn__custom-icon">
-                                                <input type="text" name="mobile_number" placeholder="phone number">
+                                                <input type="text" name="mobile_number" placeholder="phone number" required>
                                             </div>
                                         </div>
                                         
@@ -364,7 +364,7 @@
                                         <textarea name="order_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                                     </div>
                                     
-                                    <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Share to WhatsApp</button>
+                                    <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">purcahse Now</button>
                                 </form>
                             </div>
                         </div>
@@ -397,10 +397,10 @@
                                     <td>Subtotal</td>
                                     <td>Rs {{ sub_total_price }}</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>Vat</td>
                                     <td>5%</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td><strong>Order Total</strong></td>
                                     <td><strong>Rs {{ total_price }}</strong></td>
