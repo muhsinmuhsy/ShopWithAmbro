@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Orders</title>
+</head>
+<body>
+    <!-- <h1>All Orders</h1>
+    {% for order in all_orders %}
+    <div>
+        <h2>Order ID: {{ order.id }}</h2>
+        <p>Cart ID: {{ order.cart.id }}</p>
+        <p>First Name: {{ order.first_name }}</p>
+        <p>Last Name: {{ order.last_name }}</p>
+        <p>Email: {{ order.email }}</p>
+        <p>Mobile Number: {{ order.mobile_number }}</p>
+        <p>Address: {{ order.address }}</p>
+        <p>Address Two: {{ order.address_two }}</p>
+        <p>Town: {{ order.town }}</p>
+        <p>State: {{ order.state }}</p>
+        <p>Zip: {{ order.zip }}</p>
+        <p>Order Note: {{ order.order_note }}</p>
+        <p>Created At: {{ order.created_at }}</p>
+        <h3>Cart Items:</h3>
+        <ul>
+            {% for cart_item in order.cart.cartitem_set.all %}
+            <li>
+                <p>Product: {{ cart_item.product.name }}</p>
+                <p>Quantity: {{ cart_item.quantity }}</p>
+                <p>Ordered: {{ cart_item.ordered }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <hr>
+    {% endfor %} -->
+
+
+    
+</body>
+</html>
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th scope="col" class="text-nowrap">#</th>
+                <th scope="col" class="text-nowrap">Date</th>
+                <th scope="col" class="text-nowrap">Name</th>
+                <th scope="col" class="text-nowrap">Mobile Number</th>
+                <th scope="col" class="text-nowrap"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in all_orders %}
+                <tr class="text-center">
+                    <th scope="row">{{ order.id }}</th>
+                    <td class="text-nowrap">{{ order.created_at }}</td>
+                    <td class="text-nowrap">{{ order.first_name }} {{ order.last_name }}</td>
+                    <td class="text-nowrap">{{ order.mobile_number }}</td>
+                    <td>
+                        <a href="{% url 'order_view' order.id %}">
+                            view
+                        </a>
+                    </td>   
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

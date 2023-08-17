@@ -10,9 +10,9 @@ class ProductModelAdmin(admin.ModelAdmin):
 class CartModelAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Cart._meta.fields]
 
-@admin.register(CartItem)
-class CartItemModelAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in CartItem._meta.fields]
+# @admin.register(CartItem)
+# class CartItemModelAdmin(admin.ModelAdmin):
+#     list_display = [field.name for field in CartItem._meta.fields]
 
 @admin.register(Order)
 class OrderModelAdmin(admin.ModelAdmin):

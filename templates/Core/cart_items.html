@@ -272,30 +272,32 @@
 
                             <table class="table">
                                 <tbody>
-                                    {% if cart_items %}
+                                    
                                     {% for item in cart_items %}
-                                    <tr>
-                                        <td class="cart-product-remove">
-                                            <a href="{% url 'delete_cart_item' item.id %}">x</a>
-                                        </td>
-                                        <td class="cart-product-image">
-                                            <a href="product-details.html"><img src="{{ item.product.image.url }}" alt="#"></a>
-                                        </td>
-                                        <td class="cart-product-info">
-                                            <h4><a href="product-details.html">{{ item.product.name }} </a></h4>
-                                        </td>
-                                        <td class="cart-product-price">{{ item.product.price }} </td>
-                                        <td class="cart-product-quantity">
-                                            <div class="quantity-wrapper">
-                                                <a href="{% url 'decrease_quantity' item.id %}" class="quantity-button">-</a>
-                                                <div class="quantity">{{ item.quantity }}</div>
-                                                <a href="{% url 'increase_quantity' item.id %}" class="quantity-button">+</a>
-                                            </div>
-                                        </td>
-                                        <td class="cart-product-subtotal">{{ item.subtotal }}</td>
-                                    </tr>
+                                        {% if item.ordered == False %}
+                                            <tr>
+                                                <td class="cart-product-remove">
+                                                    <a href="{% url 'delete_cart_item' item.id %}">x</a>
+                                                </td>
+                                                <td class="cart-product-image">
+                                                    <a href="product-details.html"><img src="{{ item.product.image.url }}" alt="#"></a>
+                                                </td>
+                                                <td class="cart-product-info">
+                                                    <h4><a href="product-details.html">{{ item.product.name }} </a></h4>
+                                                </td>
+                                                <td class="cart-product-price">{{ item.product.price }} </td>
+                                                <td class="cart-product-quantity">
+                                                    <div class="quantity-wrapper">
+                                                        <a href="{% url 'decrease_quantity' item.id %}" class="quantity-button">-</a>
+                                                        <div class="quantity">{{ item.quantity }}</div>
+                                                        <a href="{% url 'increase_quantity' item.id %}" class="quantity-button">+</a>
+                                                    </div>
+                                                </td>
+                                                <td class="cart-product-subtotal">{{ item.total_price }}</td>
+                                            </tr>
+                                        {% endif %}
                                     {% endfor %}
-                                    {% endif %}
+                                    
                                 </tbody>
                             </table>
                             

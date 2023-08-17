@@ -25,4 +25,7 @@ urlpatterns = [
     
     path('shop', shop, name='shop'),
     path('add_to_cart_three/<int:product_id>/', add_to_cart_shop, name='add_to_cart_shop'),
+
+    path('all_orders/', all_orders, name='all_orders'),
+    path('order_view/<int:order_id>/', order_view, name='order_view'),
 ]

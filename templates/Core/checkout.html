@@ -295,7 +295,7 @@
                         <div class="ltn__checkout-single-content mt-30">
                             
                             <div class="ltn__checkout-single-content-info">
-                                <form method="post">
+                                <form method="post" action="">
                                     {% csrf_token %}
 
                                     <h6>Personal Information</h6>
@@ -388,15 +388,15 @@
                                     {% for item in cart_items %}
                                         <tr>
                                             <td>{{ item.product.name }}    <span>{{ item.product.price }}</span> <strong>× {{ item.quantity }}</strong></td>
-                                            <td>{{ item.subtotal }}</td>
+                                            <td>{{ item.total_price }}</td>
                                         </tr>
                                     {% endfor %}
                                 {% endif %}
 
-                                <tr>
+                                <!-- <tr>
                                     <td>Subtotal</td>
                                     <td>Rs {{ sub_total_price }}</td>
-                                </tr>
+                                </tr> -->
                                 <!-- <tr>
                                     <td>Vat</td>
                                     <td>5%</td>

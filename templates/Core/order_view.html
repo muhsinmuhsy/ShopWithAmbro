@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <div>
+        <h2>Order ID: {{ order.id }}</h2>
+        <p>Cart ID: {{ order.cart.id }}</p>
+        <p>First Name: {{ order.first_name }}</p>
+        <p>Last Name: {{ order.last_name }}</p>
+        <p>Email: {{ order.email }}</p>
+        <p>Mobile Number: {{ order.mobile_number }}</p>
+        <p>Address: {{ order.address }}</p>
+        <p>Address Two: {{ order.address_two }}</p>
+        <p>Town: {{ order.town }}</p>
+        <p>State: {{ order.state }}</p>
+        <p>Zip: {{ order.zip }}</p>
+        <p>Order Note: {{ order.order_note }}</p>
+        <p>Created At: {{ order.created_at }}</p>
+        <h3>Cart Items:</h3>
+        <ul>
+            {% for cart_item in order.cart.cartitem_set.all %}
+            <li>
+                <p>Product: {{ cart_item.product.name }}</p>
+                <p>Quantity: {{ cart_item.quantity }}</p>
+                <!-- <p>Ordered: {{ cart_item.ordered }}</p> -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    
+</body>
+</html>
