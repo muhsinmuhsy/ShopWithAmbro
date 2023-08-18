@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <title>Order Details</title>
 </head>
 <body>
-    
-    
-    <div>
-        <h2>Order ID: {{ order.id }}</h2>
-        <p>Cart ID: {{ order.cart.id }}</p>
-        <p>First Name: {{ order.first_name }}</p>
-        <p>Last Name: {{ order.last_name }}</p>
-        <p>Email: {{ order.email }}</p>
-        <p>Mobile Number: {{ order.mobile_number }}</p>
-        <p>Address: {{ order.address }}</p>
-        <p>Address Two: {{ order.address_two }}</p>
-        <p>Town: {{ order.town }}</p>
-        <p>State: {{ order.state }}</p>
-        <p>Zip: {{ order.zip }}</p>
-        <p>Order Note: {{ order.order_note }}</p>
-        <p>Created At: {{ order.created_at }}</p>
-        <h3>Cart Items:</h3>
-        <ul>
-            {% for cart_item in order.cart.cartitem_set.all %}
-            <li>
-                <p>Product: {{ cart_item.product.name }}</p>
-                <p>Quantity: {{ cart_item.quantity }}</p>
-                <!-- <p>Ordered: {{ cart_item.ordered }}</p> -->
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
 
-    
+<h1>Order Details</h1>
+
+<p><strong>Order ID:</strong> {{ order.id }}</p>
+<p><strong>Created At:</strong> {{ order.created_at }}</p>
+
+<h2>Customer Information</h2>
+<p><strong>Name:</strong> {{ order.first_name }} {{ order.last_name }}</p>
+<p><strong>Email:</strong> {{ order.email }}</p>
+<p><strong>Mobile Number:</strong> {{ order.mobile_number }}</p>
+
+<h2>Shipping Address</h2>
+<p><strong>Address:</strong> {{ order.address }}</p>
+<p><strong>Address Two:</strong> {{ order.address_two }}</p>
+<p><strong>Town:</strong> {{ order.town }}</p>
+<p><strong>State:</strong> {{ order.state }}</p>
+<p><strong>ZIP:</strong> {{ order.zip }}</p>
+
+<h2>Order Note</h2>
+<p>{{ order.order_note }}</p>
+
+<h2>Cart Items</h2>
+<ul>
+{% for cart_item in order.cart.all %}
+    <li>{{ cart_item.product.name }} - Price: {{ cart_item.product.price }} - Quantity: {{ cart_item.quantity }} - </li>
+{% endfor %}
+</ul>
+
 </body>
 </html>
