@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>All Orders</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
     <!-- <h1>All Orders</h1>
@@ -48,9 +49,64 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
-  <body>
+  <style>
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px ;
+        display: flex;  /* Use flexbox for layout */
+        justify-content: space-between;  /* Align items with space between them */
+        align-items: center;  /* Center items vertically */
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin: 0;  /* Remove default margin to center the text */
+        padding: 0;
+        flex-grow: 1;  /* Allow the header to grow and push the logout link to the right */
+    }
+
+    .logout-container {
+        margin-right: 25px;
+    }
+
+    .logout-link {
+        text-decoration: none;
+        font-weight: bold;
+        color: aliceblue;
+    }
+
+
     
-    <table class="table">
+
+    
+</style>
+  <body>
+
+    <!-- <nav class="navbar navbar-light bg-dark d-flex justify-content-end">
+        <span class="navbar-text ml-auto ">
+            <a href="{% url 'logout' %}" style="margin-right: 25px; text-decoration: none; font-weight: bold; color: aliceblue;" >Logout</a>
+        </span>
+    </nav> -->
+
+    <header>
+        <h1>Orders</h1>
+        <div class="logout-container">
+            <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+        </div>
+    </header>
+    
+    
+    
+    <table class="table m-2">
         <thead>
             <tr class="text-center">
                 <th scope="col" class="text-nowrap">#</th>
@@ -69,7 +125,7 @@
                     <td class="text-nowrap">{{ order.mobile_number }}</td>
                     <td>
                         <a href="{% url 'order_view' order.id %}">
-                            view
+                            <i class="bi bi-eye-fill"></i>
                         </a>
                     </td>   
                 </tr>

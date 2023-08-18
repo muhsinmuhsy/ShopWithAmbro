@@ -26,6 +26,9 @@ urlpatterns = [
     path('shop', shop, name='shop'),
     path('add_to_cart_three/<int:product_id>/', add_to_cart_shop, name='add_to_cart_shop'),
 
-    path('all_orders/', all_orders, name='all_orders'),
+    path('admin/', all_orders, name='admin'),
     path('order_view/<int:order_id>/', order_view, name='order_view'),
+
+    path('login', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
 ]

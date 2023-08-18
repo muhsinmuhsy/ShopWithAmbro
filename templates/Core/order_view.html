@@ -2,35 +2,87 @@
 <html>
 <head>
     <title>Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 3px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Order Details</h1>
+<header>
+    <h1>Order Details</h1>
+</header>
 
-<p><strong>Order ID:</strong> {{ order.id }}</p>
-<p><strong>Created At:</strong> {{ order.created_at }}</p>
+<div class="container">
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>Created At:</strong> {{ order.created_at }}</p>
 
-<h2>Customer Information</h2>
-<p><strong>Name:</strong> {{ order.first_name }} {{ order.last_name }}</p>
-<p><strong>Email:</strong> {{ order.email }}</p>
-<p><strong>Mobile Number:</strong> {{ order.mobile_number }}</p>
+    <p><strong>Name:</strong> {{ order.first_name }} {{ order.last_name }}</p>
+    <p><strong>Email:</strong> {{ order.email }}</p>
+    <p><strong>Mobile Number:</strong> {{ order.mobile_number }}</p>
 
-<h2>Shipping Address</h2>
-<p><strong>Address:</strong> {{ order.address }}</p>
-<p><strong>Address Two:</strong> {{ order.address_two }}</p>
-<p><strong>Town:</strong> {{ order.town }}</p>
-<p><strong>State:</strong> {{ order.state }}</p>
-<p><strong>ZIP:</strong> {{ order.zip }}</p>
+    <p><strong>Address:</strong> {{ order.address }}</p>
+    <p><strong>Address Two:</strong> {{ order.address_two }}</p>
+    <p><strong>Town:</strong> {{ order.town }}</p>
+    <p><strong>State:</strong> {{ order.state }}</p>
+    <p><strong>ZIP:</strong> {{ order.zip }}</p>
 
-<h2>Order Note</h2>
-<p>{{ order.order_note }}</p>
+    <p><strong>Order Note:</strong> {{ order.order_note }}</p>
 
-<h2>Cart Items</h2>
-<ul>
-{% for cart_item in order.cart.all %}
-    <li>{{ cart_item.product.name }} - Price: {{ cart_item.product.price }} - Quantity: {{ cart_item.quantity }} - </li>
-{% endfor %}
-</ul>
+    <h2>Cart Items</h2>
+    <ul>
+        {% for cart_item in order.cart.all %}
+            <li>{{ cart_item.product.name }} - Price: {{ cart_item.product.price }} - Quantity: {{ cart_item.quantity }}</li>
+        {% endfor %}
+    </ul>
+</div>
 
 </body>
 </html>
