@@ -534,7 +534,6 @@ def add_to_cart_shop(request, product_id):
 
 
 
-
 def all_orders(request):
     all_orders = Order.objects.all().order_by('-id')
     context = {'all_orders': all_orders}
